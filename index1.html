@@ -15,50 +15,110 @@
       <div class="header">
         <h2>REGISTRATION FORM</h2>
       </div>
-      <form action="#" class="form">
+      <form class="form" id="form" onsubmit="return myFun()">
         <div class="form-control">
-          <label for="">User Name</label>
-          <input type="text" name="" id="username" placeholder="Enter your fullname">
-          <i class="fas fa-check-circle"></i>
-          <i class="fas fa-exclamation-circle"></i>
-          <small>Error Massage</small>
+          <label for="username">User Name</label>
+          <input type="text" name="" id="username" placeholder="Enter your fullname" autocomplete="off">
+          <small id="namecheck"></small>
+          <span id="namesuccess"></span>
+        </div>
+
+         <div class="form-control">
+          <label for="email">User Email</label>
+          <input type="text" name="" id="email" placeholder="Enter your email" autocomplete="off">
+          <small id="emailcheck"></small>
+          <span id="emailsuccess"></span>
+        </div>
+
+         <div class="form-control">
+          <label for="phone">User Phone</label>
+          <input type="text" name="" id="phone" placeholder="Enter your phone number" autocomplete="off">
+          <small id="phonecheck"></small>
+          <span id="phonesuccess"></span>
         </div>
 
         <div class="form-control">
-          <label for="">User Email</label>
-          <input type="text" name="" id="useremail" placeholder="Enter your email address">
-          <i class="fas fa-check-circle"></i>
-          <i class="fas fa-exclamation-circle"></i>
-          <small>Error Massage</small>
-        </div>
-
-        <div class="form-control">
-          <label for="">Phone Number</label>
-          <input type="number" name="" id="phone" placeholder="Enter your phone number">
-          <i class="fas fa-check-circle"></i>
-          <i class="fas fa-exclamation-circle"></i>
-          <small>Error Massage</small>
-        </div>
-
-        <div class="form-control">
-          <label for="">Password</label>
-          <input type="password" name="" id="password" placeholder="Enter your password">
-          <i class="fas fa-check-circle"></i>
-          <i class="fas fa-exclamation-circle"></i>
-          <small>Error Massage</small>
+          <label for="password">Password</label>
+          <input type="text" name="" id="password" placeholder="Enter your password" autocomplete="off">
+          <small id="passcheck"></small>
+          <span id="passsuccess"></span>
         </div>
 
         <div class="form-control">
           <label for="">Confirm Password</label>
-          <input type="password" name="" id="conpass" placeholder="Enter your comfirm password">
-          <i class="fas fa-check-circle"></i>
-          <i class="fas fa-exclamation-circle"></i>
-          <small>Error Massage</small>
+          <input type="text" name="" id="conpass" placeholder="Enter your comfirm password" autocomplete="off">
+          <small id="concheck"></small>
         </div>
 
-        <input type="submit" name="button" id="btn" value="Submit">
+        <input type="submit" name="" id="submit" value="Submit">
 
       </form>
     </div>
+
+
+    <script>
+      
+      function myFun(){
+
+        var usercheck= /^[A-Za-z]+$/;
+        var emailcheck= /^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+        var mobilecheck=/^[0-9]{11}$/;
+        var passcheck = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{5,10}$/;
+
+        var username= document.getElementById("username").value;
+        var email= document.getElementById("email").value;
+        var phone= document.getElementById("phone").value;
+        var password= document.getElementById("password").value;
+        var conpass= document.getElementById("conpass").value;
+
+
+        if (usercheck.test(username)) {
+          document.getElementById("namesuccess").innerHTML=" Userename is valid";
+        }
+        else{
+          document.getElementById("namecheck").innerHTML="**Username is invalid";
+          return false;
+        }
+
+        if (emailcheck.test(email)) {
+          document.getElementById("emailsuccess").innerHTML="Useremail is valid";
+        }
+        else{
+          document.getElementById("emailcheck").innerHTML="**Useremail is invalid";
+          return false;
+        }
+
+        if (mobilecheck.test(phone)) {
+          document.getElementById("phonesuccess").innerHTML="Mobile number is valid";
+        }
+        else{
+          document.getElementById("phonecheck").innerHTML="**Mobile number is invalid";
+          return false;
+        }
+
+
+        if (passcheck.test(password)) {
+          document.getElementById("passsuccess").innerHTML="Password is valid";
+        }
+        else{
+          document.getElementById("passcheck").innerHTML="**Password is invalid";
+          return false;
+        }
+
+        if (conpass.match(password)) {
+          document.getElementById("concheck").innerHTML=" ";
+        }
+        else{
+          document.getElementById("concheck").innerHTML="**Con.Password is not match";
+          return false;
+        }
+
+
+      }
+
+    </script>
+
+
+
 </body>
 </html>

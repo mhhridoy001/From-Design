@@ -6,7 +6,6 @@
 body{
 	min-height: 80vh;
 	width: 100vw;
-	background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(image/banner.png);
 	background-position: center;
 	background-size: 100%;
 	display: flex;
@@ -17,10 +16,11 @@ body{
 .container{
 	background-color: #fff;
 	border-radius: 10px;
-	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10.6px rgba(0, 0, 0, 0.064);
+	box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 	overflow: hidden;
 	width: calc(100vw - 65vw);
 	max-width: 100%;
+	margin-top: 20px;
 }
 .header{
 	background: linear-gradient(to left,#74ebd5,#9face6);
@@ -33,7 +33,7 @@ body{
 	text-align: center;
 }
 .form{
-	padding: 20px;
+	padding: 28px;
 }
 .form-control{
 	margin-bottom: 20px;
@@ -45,7 +45,7 @@ body{
 }
 .form-control input{
 	width: 100%;
-	border: 2px solid #f0f0f0;
+	border: 2px solid #ccc;
 	border-radius: 5px;
 	display: block;
 	font-size: 12px;
@@ -56,38 +56,35 @@ body{
 	border-color: #777;
 }
 
-.form-control .success input{
-	border-color: #2ecc71;
-}
-.form-control .error input{
-	border-color: #e74c3c;
-}
+
+/*
 .form-control i{
 	position: absolute;
 	right: 12px;
 	top: 38px;
-	visibility: hidden;
+	visibility: ;
 }
-.form-control .success i.fa-check-circle{
-	color: #2ecc71;
-	visibility: visible;
+.form-control .error i{
+	color: #f00;
 }
-.form-control .error i.fa-exclamation-circle{
-	color: #e74c3c;
-	visibility: visible;
-}
+*/
 .form-control small{
 	color: #e74c3c;
 	position: absolute;
-	bottom: 0;
+	bottom: 10;
 	left: 0;
-	visibility: hidden;
+	font-weight: bold;
 }
-
-.form-control .error small{
-	visibility: visible;
+.form-control span{
+	color: #2ecc71;
+	position: absolute;
+	bottom: 10;
+	left: 0;
+	font-weight: bold;
+	font-size: 12px;
+	border-color: #2ecc71;
 }
-.form #btn{
+.form #submit{
 	background: linear-gradient(to left,#74ebd5,#9face6);
 	border-radius: 6px;
 	border: none;
@@ -101,6 +98,6 @@ body{
 	text-transform: uppercase;
 	transition: all 1s ease;
 }
-.form #btn:hover{
+.form #submit:hover{
 	background: linear-gradient(to right,#74ebd5,#9face6);
 }
